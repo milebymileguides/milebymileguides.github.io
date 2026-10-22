@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Route 66 Mile by Mile · Reader updates</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Reader updates for Route 66 Mile by Mile, 2027–2028 Edition, by Hollis Wayland.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;600;700&display=swap">
+<style>
+/* Layout: one road-like column; a red rail runs down the left of the watch list like the book's route line. */
+:root{
+  --paper:#FBF8F2; --panel:#F3EBDD; --ink:#1F2933; --quiet:#4B5563; --rule:#D9CFBF;
+  --route:#C2410C; --teal:#0F766E; --gold:#B45309; --closed:#B91C1C;
+  --display:"Oswald","Arial Narrow",Impact,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --ui:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#16130F; --panel:#221D17; --ink:#EFE8DC; --quiet:#B5AA99; --rule:#3A3229;
+  --route:#F0703A; --teal:#3BB3A6; --gold:#E0A050; --closed:#F26B6B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#16130F; --panel:#221D17; --ink:#EFE8DC; --quiet:#B5AA99; --rule:#3A3229;
+  --route:#F0703A; --teal:#3BB3A6; --gold:#E0A050; --closed:#F26B6B; color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.kicker{font-family:var(--display);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--route);font-size:.85rem;margin:0}
+h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(2.2rem,7vw,3.6rem);line-height:1;margin:.3em 0 .2em;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:1.6rem;margin:0 0 .5em;display:flex;align-items:center;gap:12px;text-wrap:balance}
+h2::before{content:"";width:5px;height:1.2em;background:var(--route);flex:none}
+.meta{font-family:var(--ui);font-size:.85rem;color:var(--quiet)}
+.lead{font-size:1.15rem;max-width:62ch}
+section{margin-top:48px}
+.note{background:var(--panel);border-top:3px solid var(--teal);padding:14px 16px;font-family:var(--ui);font-size:.95rem}
+.watch{list-style:none;margin:0;padding:0;border-left:4px solid var(--route);display:grid;gap:0}
+.watch li{padding:14px 0 14px 18px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:start}
+.where{font-family:var(--ui);font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--quiet);grid-column:1/-1;font-variant-numeric:tabular-nums}
+.where b{color:var(--route)}
+.pill{font-family:var(--ui);font-weight:700;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:3px;color:var(--paper);white-space:nowrap;margin-top:3px}
+.closed{background:var(--closed)} .changed{background:var(--gold)} .open{background:var(--teal)} .watching{background:var(--quiet)}
+.watch h3{font-family:var(--display);font-weight:600;font-size:1.2rem;margin:0;text-transform:uppercase;letter-spacing:.01em}
+.watch p{margin:2px 0 0;grid-column:2;min-width:0}
+.checked{font-family:var(--ui);font-size:.78rem;color:var(--quiet)}
+figure{margin:0}
+figure img{display:block;width:100%;border:1px solid var(--rule);border-radius:3px;background:#FBF8F2}
+figcaption{font-family:var(--ui);font-size:.8rem;color:var(--quiet);margin-top:6px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px}
+.cols ol{margin:0;padding-left:1.2em;display:grid;gap:8px}
+.cols>*{min-width:0}
+.prints{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:18px}
+.print{display:grid;gap:8px;align-content:start}
+.print img{border:1px solid var(--rule);border-radius:2px;aspect-ratio:8.75/11.25;object-fit:cover;width:100%;max-width:100%;background:#fff}
+.print strong{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:1.05rem}
+.print span{font-family:var(--ui);font-size:.82rem;color:var(--quiet)}
+.btn{text-decoration:none;display:inline-block}
+.btn,button{font-family:var(--ui);font-weight:700;font-size:.85rem;background:var(--route);color:#fff;border:0;border-radius:3px;padding:9px 12px;cursor:pointer;justify-self:start}
+.btn:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+button[disabled]{opacity:.6;cursor:default}
+.report{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mail{font-family:var(--ui);font-weight:700;font-size:1rem;user-select:all;overflow-wrap:anywhere}
+.status{font-family:var(--ui);font-size:.8rem;color:var(--quiet);min-height:1.2em}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--rule)}
+a{color:var(--route)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <p class="kicker">Route 66 Mile by Mile · 2027–2028 Edition</p>
+  <h1>Reader updates</h1>
+  <p class="meta">By Hollis Wayland · Last checked 22 October 2026 · Mileposts match the book: miles from where Route 66 enters each state</p>
+  <p class="lead">Roads close, diners change hands and motels reopen. This page lists what has changed since the book went to press, so you can mark it on the right page before you drive.</p>
+
+  <section id="corrections">
+    <h2>Corrections since printing</h2>
+    <div class="note">None yet. When something in the book changes, it will appear here with its state, milepost and the date we checked it.</div>
+  </section>
+
+  <section id="watch">
+    <h2>Before you go: the watch list</h2>
+    <p>These were changing when the book went to press. Check them again the week you leave.</p>
+    <ul class="watch">
+      <li><span class="where"><b>California</b> · MP 54.5–87.9 · Chapter 12</span>
+        <span class="pill closed">Closed</span><h3>Old 66 through Essex, in the Mojave</h3>
+        <p>Flood-damaged bridges keep the National Trails Highway closed between the Fenner area and Kelbaker Road. San Bernardino County describes the closed section as Cadiz Road to Mountain Springs Road. Detour on I-40 from Fenner to the Kelbaker Road exit, then south to old 66. Before you set out, ring San Bernardino County Public Works on (909) 387-7910 or see its <a href="https://dpw.sbcounty.gov/operations/nth-road-closures/" target="_blank" rel="noopener">road-closures page</a>.</p></li>
+      <li><span class="where"><b>California</b> · MP 93.7 · Amboy</span>
+        <span class="pill changed">Changing</span><h3>Roy's Motel and Cafe</h3>
+        <p>Sells gas and souvenirs. In mid-2026, work was under way to get the motel rooms ready for overnight guests.</p></li>
+      <li><span class="where"><b>California</b> · MP 151.0 · Newberry Springs</span>
+        <span class="pill changed">Changing</span><h3>Bagdad Cafe</h3>
+        <p>Open for photos, drinks and souvenirs; the kitchen is closed. The owner's family was still deciding the cafe's future in October 2026.</p></li>
+      <li><span class="where"><b>California</b> · Kelbaker Road exit of I-40 · Chapter 13</span>
+        <span class="pill changed">Changing</span><h3>Kelso Depot, Mojave National Preserve</h3>
+        <p>The visitor center inside the 1925 depot was closed for renovation in 2026. The Kelso Dunes and the depot grounds stay open. Check the National Park Service's Mojave National Preserve page before the drive north on Kelbaker Road.</p></li>
+      <li><span class="where"><b>Missouri</b> · MP 185.3 · Lebanon</span>
+        <span class="pill changed">Changing</span><h3>Munger Moss Motel</h3>
+        <p>Mostly converted to long-term apartments. In January 2026 the owners said 15 rooms would return to overnight rental. The neon sign stays lit.</p></li>
+      <li><span class="where"><b>Missouri</b> · MP 83.6 · Sullivan</span>
+        <span class="pill open">Open</span><h3>Shamrock Court</h3>
+        <p>The 1948 motel reopened to overnight guests in 2026 after a volunteer-led restoration.</p></li>
+      <li><span class="where"><b>New Mexico</b> · MP 99.7 · Santa Rosa</span>
+        <span class="pill open">Open</span><h3>Blue Hole</h3>
+        <p>Reopened to swimmers, and later to divers, after part of the underwater wall collapsed in June 2024. Signs mark the damaged west wall.</p></li>
+      <li><span class="where"><b>Oklahoma</b> · Luther</span>
+        <span class="pill watching">Watching</span><h3>Threatt Filling Station</h3>
+        <p>The family is working on an interpretive center inside the 1933 station. View it from the road until it opens.</p></li>
+      <li><span class="where"><b>Whole route</b></span>
+        <span class="pill watching">Watching</span><h3>National Historic Trail</h3>
+        <p>A bill to make Route 66 a National Historic Trail was placed on the Senate calendar in September 2026.</p></li>
+    </ul>
+  </section>
+
+  <section id="santa-fe-loop">
+    <h2>The Santa Fe loop, New Mexico</h2>
+    <figure>
+      <img src="santa-fe-loop.png" alt="Map of New Mexico between Santa Rosa and Albuquerque. The red 1937 road runs straight west through Clines Corners, Moriarty and Tijeras. The teal pre-1937 road swings north from west of Santa Rosa to Romeroville and Santa Fe, then south through Bernalillo and Albuquerque to Los Lunas." width="900" height="460">
+      <figcaption>Red: the 1937 road the book maps. Teal: Route 66 before 1937. Map data © OpenStreetMap contributors (ODbL).</figcaption>
+    </figure>
+    <div class="cols" style="margin-top:20px">
+      <div>
+        <ol>
+          <li>Leave the main road west of Santa Rosa and head north-west toward Romeroville, near Las Vegas.</li>
+          <li>Follow the old road south-west over the hills to Santa Fe. Stay a night for the plaza, San Miguel Chapel and the El Rey Inn.</li>
+          <li>Run south past Santo Domingo and Bernalillo into Albuquerque on 4th Street.</li>
+          <li>Continue to Los Lunas and turn west, or rejoin the later road at Albuquerque.</li>
+        </ol>
+      </div>
+      <div>
+        <p style="margin-top:0">The loop adds about 130 miles and at least half a day. Much of it is now modern highway, so use this map to plan and a phone map for the turns in Santa Fe and Albuquerque. Chapter 10 of the book has the history.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="printables">
+    <h2>Printable pages</h2>
+    <p>The book's checklists and worksheets, as PDFs to print and take with you.</p>
+    <div class="prints">
+      <div class="print"><img src="prev-66-things-checklist.png" alt="Preview of the 66 things to do on 66 checklist" width="525" height="675"><strong>66 things to do on 66</strong><span>Two pages · tick-box checklist</span><a class="btn" href="66-things-checklist.pdf" download>Download PDF</a></div>
+      <div class="print"><img src="prev-packing-list.png" alt="Preview of the packing list" width="525" height="675"><strong>Packing list</strong><span>One page</span><a class="btn" href="packing-list.pdf" download>Download PDF</a></div>
+      <div class="print"><img src="prev-budget-worksheet.png" alt="Preview of the budget worksheet" width="525" height="675"><strong>Budget worksheet</strong><span>One page</span><a class="btn" href="budget-worksheet.pdf" download>Download PDF</a></div>
+      <div class="print"><img src="prev-trip-planner.png" alt="Preview of the trip planner" width="525" height="675"><strong>Trip planner</strong><span>One page · 22 days</span><a class="btn" href="trip-planner.pdf" download>Download PDF</a></div>
+    </div>
+  </section>
+
+  <section id="report">
+    <h2>Report a change</h2>
+    <p>Found a stop closed, a new owner, a road reopened? Send the state, the milepost from the book and what you saw, with the date. Checked corrections go on this page and into the next edition.</p>
+    <div class="report">
+      <button type="button" id="show-mail">Show the email address</button>
+      <span id="mail-out" class="mail" hidden></span>
+      <button type="button" id="copy-mail" hidden>Copy</button>
+    </div>
+    <p class="status" id="mail-status" aria-live="polite"></p>
+  </section>
+
+  <footer class="meta">Route 66 Mile by Mile, 2027–2028 Edition. This page is updated as changes are checked. Business hours change often: ring ahead before a long detour.</footer>
+</div>
+
+<script>
+  buttons.forEach(btn => btn.addEventListener('click', async () => {
+    await ready;
+    if (!dl) return;
+    const file = btn.dataset.file;
+    btn.disabled = true; status.textContent = 'Preparing ' + file + '…';
+    try {
+      const res = await fetch(file);
+      if (!res.ok) throw new Error('fetch');
+      const blob = await res.blob();
+      await dl.save({ filename: file, data: blob });
+      status.textContent = 'Saved ' + file + '.';
+    } catch (e) {
+      const code = e && e.code;
+      status.textContent = code === 'declined' ? 'Download cancelled.' : code === 'rate_limited' ? 'A download is already waiting for you to confirm.' : 'This file could not be saved here. Try again in a desktop browser.';
+    } finally { btn.disabled = false; }
+  }));
+})();
+(function(){
+  const k = 'bW9jLmxpYW1nQDA5MWRhc2ZmZg==';
+  const show = document.getElementById('show-mail'), out = document.getElementById('mail-out'), copy = document.getElementById('copy-mail'), st = document.getElementById('mail-status');
+  const addr = () => atob(k).split('').reverse().join('');
+  show.addEventListener('click', () => { out.textContent = addr(); out.hidden = false; copy.hidden = false; show.hidden = true; });
+  copy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(addr()); st.textContent = 'Address copied.'; }
+    catch (e) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); st.textContent = 'Address selected: copy it with your device.'; }
+  });
+})();
+</script>
+
+</body>
+</html>
