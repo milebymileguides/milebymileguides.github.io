@@ -158,23 +158,6 @@ a{color:var(--route)}
 </div>
 
 <script>
-  buttons.forEach(btn => btn.addEventListener('click', async () => {
-    await ready;
-    if (!dl) return;
-    const file = btn.dataset.file;
-    btn.disabled = true; status.textContent = 'Preparing ' + file + '…';
-    try {
-      const res = await fetch(file);
-      if (!res.ok) throw new Error('fetch');
-      const blob = await res.blob();
-      await dl.save({ filename: file, data: blob });
-      status.textContent = 'Saved ' + file + '.';
-    } catch (e) {
-      const code = e && e.code;
-      status.textContent = code === 'declined' ? 'Download cancelled.' : code === 'rate_limited' ? 'A download is already waiting for you to confirm.' : 'This file could not be saved here. Try again in a desktop browser.';
-    } finally { btn.disabled = false; }
-  }));
-})();
 (function(){
   const k = 'bW9jLmxpYW1nQDA5MWRhc2ZmZg==';
   const show = document.getElementById('show-mail'), out = document.getElementById('mail-out'), copy = document.getElementById('copy-mail'), st = document.getElementById('mail-status');

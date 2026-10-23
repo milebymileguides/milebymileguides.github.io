@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Yellowstone &amp; Grand Teton Mile by Mile · Reader updates</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Reader updates for Yellowstone & Grand Teton Mile by Mile, 2027 Edition, by Hollis Wayland.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;600;700&display=swap">
+<style>
+/* Same layout as the Route 66 page, in the Yellowstone book's colours: geyser teal and sulphur gold. */
+:root{
+  --paper:#FBF8F2; --panel:#EEF3EC; --ink:#1F2933; --quiet:#4B5563; --rule:#D9CFBF;
+  --route:#0E7C86; --deep:#0A5560; --sul:#B7860F; --closed:#B91C1C;
+  --display:"Oswald","Arial Narrow",Impact,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --ui:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#101618; --panel:#182326; --ink:#E7EEEC; --quiet:#A9B7B5; --rule:#2C3A3D;
+  --route:#3BB8C2; --deep:#7FD3D9; --sul:#E3B341; --closed:#F26B6B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#101618; --panel:#182326; --ink:#E7EEEC; --quiet:#A9B7B5; --rule:#2C3A3D;
+  --route:#3BB8C2; --deep:#7FD3D9; --sul:#E3B341; --closed:#F26B6B; color-scheme:dark}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.kicker{font-family:var(--display);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--route);font-size:.85rem;margin:0}
+h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(2.2rem,7vw,3.6rem);line-height:1;margin:.3em 0 .2em;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:1.6rem;margin:0 0 .5em;display:flex;align-items:center;gap:12px;text-wrap:balance}
+h2::before{content:"";width:5px;height:1.2em;background:var(--route);flex:none}
+.meta{font-family:var(--ui);font-size:.85rem;color:var(--quiet)}
+.lead{font-size:1.15rem;max-width:62ch}
+section{margin-top:48px}
+.note{background:var(--panel);border-top:3px solid var(--sul);padding:14px 16px;font-family:var(--ui);font-size:.95rem}
+.watch{list-style:none;margin:0;padding:0;border-left:4px solid var(--route);display:grid;gap:0}
+.watch li{padding:14px 0 14px 18px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:start}
+.where{font-family:var(--ui);font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--quiet);grid-column:1/-1;font-variant-numeric:tabular-nums}
+.where b{color:var(--route)}
+.pill{font-family:var(--ui);font-weight:700;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:3px;color:#fff;white-space:nowrap;margin-top:3px}
+.closed{background:var(--closed)} .changed{background:var(--sul)} .open{background:var(--route)} .watching{background:var(--quiet)}
+.watch h3{font-family:var(--display);font-weight:600;font-size:1.2rem;margin:0;text-transform:uppercase;letter-spacing:.01em}
+.watch p{margin:2px 0 0;grid-column:2;min-width:0}
+table{border-collapse:collapse;width:100%;font-family:var(--ui);font-size:.9rem}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--route)}
+td.ch{color:var(--quiet);white-space:nowrap}
+.tablewrap{overflow-x:auto}
+figure{margin:0}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:3px;background:#FBF8F2}
+figcaption{font-family:var(--ui);font-size:.8rem;color:var(--quiet);margin-top:6px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;align-items:start}
+.cols>*{min-width:0}
+.chlist{list-style:none;margin:0;padding:0;font-family:var(--ui);font-size:.92rem}
+.chlist li{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--rule)}
+.chlist .n{font-family:var(--display);font-weight:700;color:#fff;background:var(--deep);border-radius:50%;width:1.7em;height:1.7em;display:inline-grid;place-items:center;flex:none;font-size:.8rem}
+.chlist .gt .n{background:var(--sul)}
+.chlist small{color:var(--quiet)}
+.prints{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:18px}
+.print{display:grid;gap:8px;align-content:start}
+.print img{border:1px solid var(--rule);border-radius:2px;aspect-ratio:8.75/11.25;object-fit:cover;width:100%;max-width:100%;height:auto;background:#fff}
+.print strong{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:1.05rem}
+.print span{font-family:var(--ui);font-size:.82rem;color:var(--quiet)}
+.btn{text-decoration:none;display:inline-block}
+.btn,button{font-family:var(--ui);font-weight:700;font-size:.85rem;background:var(--route);color:#fff;border:0;border-radius:3px;padding:9px 12px;cursor:pointer;justify-self:start}
+.btn:focus-visible,button:focus-visible{outline:3px solid var(--sul);outline-offset:2px}
+.report{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mail{font-family:var(--ui);font-weight:700;font-size:1rem;user-select:all;overflow-wrap:anywhere}
+.status{font-family:var(--ui);font-size:.8rem;color:var(--quiet);min-height:1.2em}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--rule)}
+a{color:var(--route)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <p class="kicker">Yellowstone &amp; Grand Teton Mile by Mile · 2027 Edition</p>
+  <h1>Reader updates</h1>
+  <p class="meta">By Hollis Wayland · Last checked 23 October 2026 · Mileposts match the book: miles from the start of each chapter's road</p>
+  <p class="lead">Roads open late, bridges close for work, and a hot spring can change overnight. This page lists what has changed since the book went to press, so you can mark it on the right page before you drive.</p>
+
+  <section id="corrections">
+    <h2>Corrections since printing</h2>
+    <div class="note">None yet. When something in the book changes, it will appear here with its chapter, milepost and the date we checked it.</div>
+  </section>
+
+  <section id="dates-2027">
+    <h2>2027 opening dates</h2>
+    <p>The National Park Service publishes each year's road, lodge, campground and visitor center dates during the winter before the season. When the 2027 dates are out, they will be listed here next to the 2026 dates printed in the book.</p>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Yellowstone road</th><th>2026 (NPS projected)</th><th>2027</th><th>Chapter</th></tr></thead>
+      <tbody>
+        <tr><td>North Entrance to Northeast Entrance</td><td>Open all year</td><td>Open all year</td><td class="ch">5, 14</td></tr>
+        <tr><td>West Entrance–Madison, Madison–Old Faithful, Madison–Norris, Mammoth–Norris, Norris–Canyon</td><td>Apr 17 – Oct 31</td><td>Not yet published</td><td class="ch">6, 7, 8, 12</td></tr>
+        <tr><td>East Entrance–Fishing Bridge (Sylvan Pass), Canyon–Bridge Bay</td><td>May 1 – Oct 31</td><td>Not yet published</td><td class="ch">10, 11</td></tr>
+        <tr><td>South Entrance–West Thumb, West Thumb–Old Faithful, West Thumb–Lake, Tower-Roosevelt–Tower Fall</td><td>May 8 – Oct 31</td><td>Not yet published</td><td class="ch">9, 10, 13</td></tr>
+        <tr><td>Canyon–Tower Fall (Dunraven Pass)</td><td>May 22 – Oct 12</td><td>Not yet published</td><td class="ch">13</td></tr>
+        <tr><td>Beartooth Highway (US 212), outside the park</td><td>May 22 – Oct 12</td><td>Not yet published</td><td class="ch">19</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="meta">Source: NPS Yellowstone Park Roads page (updated October 13, 2026). NPS says all dates can change with the weather.</p>
+  </section>
+
+  <section id="watch">
+    <h2>Before you go: the watch list</h2>
+    <p>These were closed or changing when the book went to press. Check them again the week you leave.</p>
+    <ul class="watch">
+      <li><span class="where"><b>Chapter 8</b> · MP 13.9 · Upper Geyser Basin</span>
+        <span class="pill closed">Closed</span><h3>Biscuit Basin</h3>
+        <p>The parking lot, boardwalk and Firehole River at Biscuit Basin are closed to all travel until further notice, after a hydrothermal explosion on July 23, 2024 and a smaller one on June 13, 2026.</p></li>
+      <li><span class="where"><b>Chapter 12</b> · Grand Canyon of the Yellowstone</span>
+        <span class="pill closed">Closed</span><h3>Uncle Tom's Trail</h3>
+        <p>Closed since 2019. In December 2023 the park said the closure is permanent and the staircase will be removed.</p></li>
+      <li><span class="where"><b>Chapter 5</b> · North Entrance road</span>
+        <span class="pill changed">Changing</span><h3>North Entrance road rebuild</h3>
+        <p>Cars have used a temporary road on the historic Old Gardiner Road since October 30, 2022. In September 2026, construction of a rebuilt road was planned for 2027.</p></li>
+      <li><span class="where"><b>Chapter 14</b> · Northeast Entrance road</span>
+        <span class="pill closed">Closed</span><h3>Pebble Creek Campground</h3>
+        <p>Closed since the 2022 flood "until further notice."</p></li>
+      <li><span class="where"><b>Chapter 13</b> · Dunraven Pass</span>
+        <span class="pill watching">Watching</span><h3>Weather closures on the high passes</h3>
+        <p>NPS temporarily closed Dunraven Pass and Sylvan Pass for hazardous driving conditions on October 22, 2026. These high roads close for weather more often than the rest of the park. Check the park's road status before you drive them.</p></li>
+      <li><span class="where"><b>Chapter 18</b> · Moose-Wilson Road</span>
+        <span class="pill changed">Changing</span><h3>Moose-Wilson Road rebuild</h3>
+        <p>In October 2026 the road between Moose and the Laurance S. Rockefeller Preserve was closed to all use for construction. Work continues into 2027, with closures in spring and fall and long delays in summer.</p></li>
+      <li><span class="where"><b>Chapter 18</b> · Death Canyon</span>
+        <span class="pill closed">Closed</span><h3>Death Canyon Road and Trailhead</h3>
+        <p>Closed to all use from May 2026 to June 2027 while a new trailhead is built about a mile from the old one. NPS suggests Granite Canyon, the Rockefeller Preserve or Taggart Lake instead.</p></li>
+      <li><span class="where"><b>Chapter 16</b> · Moose</span>
+        <span class="pill changed">Changing</span><h3>Roundabout north of the Moose Entrance</h3>
+        <p>Under construction from May 2026 to June 2027: expect 20-minute delays, not counting the wait at the entrance station.</p></li>
+      <li><span class="where"><b>Chapter 17</b> · Moran Junction</span>
+        <span class="pill changed">Changing</span><h3>US 26/89/191 south of Moran</h3>
+        <p>Construction in October 2026, with 20-minute delays in both directions.</p></li>
+      <li><span class="where"><b>Chapter 17</b> · Mormon Row</span>
+        <span class="pill changed">Changing</span><h3>Mormon Row walking and cycling zone</h3>
+        <p>A 2026 project is turning the area into a pedestrian and cyclist zone with more parking.</p></li>
+    </ul>
+    <p class="meta">Sources: NPS alerts for Yellowstone and Grand Teton (October 23, 2026); NPS Grand Teton road construction page (October 15, 2026); USGS Yellowstone Volcano Observatory (June 2026); KTVQ (September 17, 2026).</p>
+  </section>
+
+  <section id="roads">
+    <h2>The roads in the book</h2>
+    <div class="cols">
+      <figure>
+        <img src="roads-map.jpg" alt="Map of Yellowstone and Grand Teton national parks. Teal roads with numbers 5 to 14 cover Yellowstone's Grand Loop and entrance roads; gold roads with numbers 15 to 18 run south from the South Entrance through Grand Teton to Jackson and Teton Village." width="779" height="1004">
+        <figcaption>Each number sits on its chapter's road. Map data © OpenStreetMap contributors (ODbL).</figcaption>
+      </figure>
+      <ul class="chlist">
+        <li><span class="n">5</span><span>Mammoth <small>North Entrance to Mammoth Hot Springs</small></span></li>
+        <li><span class="n">6</span><span>Mammoth to Norris <small>Golden Gate and Obsidian Cliff</small></span></li>
+        <li><span class="n">7</span><span>Norris to Madison <small>and the West Entrance road</small></span></li>
+        <li><span class="n">8</span><span>Geyser Country <small>Madison Junction to Old Faithful</small></span></li>
+        <li><span class="n">9</span><span>West Thumb <small>and the South Entrance road</small></span></li>
+        <li><span class="n">10</span><span>Yellowstone Lake <small>and the East Entrance road</small></span></li>
+        <li><span class="n">11</span><span>Hayden Valley <small>Fishing Bridge to Canyon</small></span></li>
+        <li><span class="n">12</span><span>Grand Canyon <small>Norris to Canyon and the canyon rims</small></span></li>
+        <li><span class="n">13</span><span>Dunraven Pass <small>Canyon to Tower</small></span></li>
+        <li><span class="n">14</span><span>Northern Range <small>Tower to Mammoth, and Lamar Valley</small></span></li>
+        <li class="gt"><span class="n">15</span><span>Rockefeller Parkway <small>South Entrance to Oxbow Bend</small></span></li>
+        <li class="gt"><span class="n">16</span><span>Teton Park Road <small>Jackson Lake Junction to Moose</small></span></li>
+        <li class="gt"><span class="n">17</span><span>Outer Park Road <small>Moran to Jackson</small></span></li>
+        <li class="gt"><span class="n">18</span><span>Moose-Wilson Road <small>Moose to Teton Village</small></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="printables">
+    <h2>Printable pages</h2>
+    <p>Pages from the book to print and take with you.</p>
+    <div class="prints">
+      <div class="print"><img src="prev-50-things-checklist.png" alt="Preview of the 50 things to do checklist" width="525" height="675"><strong>50 things to do</strong><span>Two pages · tick-box checklist</span><a class="btn" href="50-things-checklist.pdf" download>Download PDF</a></div>
+      <div class="print"><img src="prev-before-you-go-checklist.png" alt="Preview of the before-you-go checklist" width="525" height="675"><strong>Before you go</strong><span>One page · checklist</span><a class="btn" href="before-you-go-checklist.pdf" download>Download PDF</a></div>
+      <div class="print"><img src="prev-trip-planner.png" alt="Preview of the trip planner" width="525" height="675"><strong>Trip planner</strong><span>One page · 10 days</span><a class="btn" href="trip-planner.pdf" download>Download PDF</a></div>
+      <div class="print"><img src="prev-roads-map.png" alt="Preview of the map of the roads in the book" width="525" height="675"><strong>Map of the roads</strong><span>One page · both parks</span><a class="btn" href="roads-map.pdf" download>Download PDF</a></div>
+    </div>
+  </section>
+
+  <section id="report">
+    <h2>Report a change</h2>
+    <p>Found a road closed, a trail reopened, or a stop that has changed? Send the chapter, the milepost from the book and what you saw, with the date. Checked corrections go on this page and into the next edition.</p>
+    <div class="report">
+      <button type="button" id="show-mail">Show the email address</button>
+      <span id="mail-out" class="mail" hidden></span>
+      <button type="button" id="copy-mail" hidden>Copy</button>
+    </div>
+    <p class="status" id="mail-status" aria-live="polite"></p>
+  </section>
+
+  <footer class="meta">Yellowstone &amp; Grand Teton Mile by Mile, 2027 Edition. This page is updated as changes are checked. For today's road status, check the parks' own pages: <a href="https://www.nps.gov/yell/planyourvisit/parkroads.htm" target="_blank" rel="noopener">Yellowstone roads</a> and <a href="https://www.nps.gov/grte/planyourvisit/road-construction.htm" target="_blank" rel="noopener">Grand Teton construction</a>. Not published by or affiliated with the National Park Service.</footer>
+</div>
+
+<script>
+(function(){
+  const k = 'bW9jLmxpYW1nQDA5MWRhc2ZmZg==';
+  const show = document.getElementById('show-mail'), out = document.getElementById('mail-out'), copy = document.getElementById('copy-mail'), st = document.getElementById('mail-status');
+  const addr = () => atob(k).split('').reverse().join('');
+  show.addEventListener('click', () => { out.textContent = addr(); out.hidden = false; copy.hidden = false; show.hidden = true; });
+  copy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(addr()); st.textContent = 'Address copied.'; }
+    catch (e) { const r = document.createRange(); r.selectNodeContents(out); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); st.textContent = 'Address selected: copy it with your device.'; }
+  });
+})();
+</script>
+
+</body>
+</html>
